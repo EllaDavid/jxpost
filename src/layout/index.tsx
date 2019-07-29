@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Layout, Menu, Icon  } from 'antd';
 
 import { IProps, IState } from './type';
+import TestContent from '../content/testContent';
 
 const { Header, Footer, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -35,7 +36,7 @@ class BaseLayout extends React.Component<IProps, IState> {
             页头
           </Header>
           <Content style={{ margin: '24px 16px 0' }}>
-            内容
+            <TestContent />
           </Content>
           <Footer style={{ background: '#FFFFFF', textAlign: 'center' }}>
             页脚
