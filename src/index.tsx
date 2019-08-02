@@ -6,19 +6,21 @@ import * as serviceWorker from './serviceWorker';
 
 import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import createSagaMiddleware from 'redux-saga';
+import thunk from 'redux-thunk';
 import rootReducers from './redux/reducers';
-
-const sagaMiddleware = createSagaMiddleware();
+import zhCN from 'antd/lib/locale-provider/zh_CN';
+import { LocaleProvider } from 'antd';
 
 const store = createStore(
   rootReducers,
-  compose(applyMiddleware(sagaMiddleware))
+  compose(applyMiddleware(thunk))
 );
 
 ReactDOM.render(
   (<Provider store = { store }>
-    <App />
+    <LocaleProvider locale={zhCN}>
+      <App />
+    </LocaleProvider>
   </Provider>), document.getElementById('root') as HTMLElement
 );
 

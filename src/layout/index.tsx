@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Layout, Menu, Icon  } from 'antd';
 
 import { IProps, IState } from './type';
-import TestContent from '../content/testContent';
+import UploadDetailViewContent from '../content/uploadDetailViewContent';
 
 const { Header, Footer, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -36,10 +36,10 @@ class BaseLayout extends React.Component<IProps, IState> {
             页头
           </Header>
           <Content style={{ margin: '24px 16px 0' }}>
-            <TestContent />
+            <UploadDetailViewContent />
           </Content>
           <Footer style={{ background: '#FFFFFF', textAlign: 'center' }}>
-            页脚
+            中国邮政集团公司嘉兴分公司 @2019 Created by David
           </Footer>
         </Layout>
       </Layout>
