@@ -1,20 +1,20 @@
 import $req, { HttpMethod } from '../myFetch';
 import { IMessageRsp } from '../type';
 
-export async function getDataCom(page: number, limit: number, callBack: Function) {
-  const getUrl = 'uploadDetail/listByAnonymous';
+/**
+ * 生成寄递的成本EXCEL文件
+ */
+export async function createExcel(value: object, callBack: Function) {
+  const getUrl = 'downloadDetail/exportMailDetail';
   const reqBody: any = {
-    json: '',
-    page: page,
-    limit: limit
+    ...value
   }
-
   try {
     const res: IMessageRsp = await $req(getUrl, {
       body: reqBody,
-      method: HttpMethod.get
+      method: HttpMethod.put
     });
-
+  
     callBack(res);
   } catch(e) {
     console.log(e);

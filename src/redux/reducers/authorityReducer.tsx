@@ -10,8 +10,8 @@ const initStore = {
   roleId: 0,
   roleName: '',
   hasAuthority: false,
-  mobile: '',
-  userId: 0
+  userId: 0,
+  userName: ''
 }
 
 export function AuthorityReducer(state = initStore, action: AuthorityAction): IStore {
@@ -19,11 +19,11 @@ export function AuthorityReducer(state = initStore, action: AuthorityAction): IS
     case AUTHORITY_IN:
       return {
         ...state,
+        hasAuthority: action.data.hasAuthority,
         roleId: action.data.roleId,
         roleName: action.data.roleName,
-        hasAuthority: action.data.hasAuthority,
-        mobile: action.data.mobile,
-        userId: action.data.userId
+        userId: action.data.userId,
+        userName: action.data.userName
       }
     case AUTHORITY_OUT:
       return { ...state, hasAuthority: false }

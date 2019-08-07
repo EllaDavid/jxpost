@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Table, Icon } from 'antd';
+import { Table, Icon, message } from 'antd';
 
 import { getColumn } from '../../communication/tableColumn/tableColumn';
-import { getData } from '../../communication/tableData/uploadDetailData';
+import { getDataCom } from '../../communication/tableData/uploadDetailData';
+import { uploadLoad } from '../../communication/upload/uploadLog';
 
 import { IProps, IState } from './type'
 import { IMessageRsp } from '../../communication/type';
@@ -20,10 +21,19 @@ class UploadDetailViewContent extends React.Component<IProps, IState> {
       fixed: 'right',
       width: 100,
       render: (text: any, record: any, index: any) => {
-        // console.log({text, record, index});
         return (
           <div>
-            <span onClick = { () => this.handleIconOnClick(record) }>
+            <span onClick = { () => this.handleIconOnClick(record,
+              (rsp: IMessageRsp) => {
+                if(rsp.state) {
+                  message.success("文件导入成功");
+                } else {
+                  message.error(`${ rsp.message }.`);
+                }
+
+                this.getData();
+              }) 
+            }>
               <Icon type = "upload" title = "导入" />
             </span>
           </div>
@@ -43,7 +53,7 @@ class UploadDetailViewContent extends React.Component<IProps, IState> {
   private getData() {
     let data: any = [];
 
-    getData(this.state.page, this.state.limit, (rsp: IMessageRsp) => {
+    getDataCom(this.state.page, this.state.limit, (rsp: IMessageRsp) => {
       data = rsp.rowList;
       this.setState({ data: data, total: rsp.total });
     })
@@ -88,8 +98,8 @@ class UploadDetailViewContent extends React.Component<IProps, IState> {
     });
   }
 
-  private handleIconOnClick(record: any) {
-    console.log(record);
+  private handleIconOnClick(record: any, callback: Function) {
+    uploadLoad(record, callback);
   }
 
   public render() {

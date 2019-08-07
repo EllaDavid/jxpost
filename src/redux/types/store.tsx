@@ -4,7 +4,7 @@
 export interface IStore {
   hasAuthority: boolean;
   userId: number;
-  mobile: string;
+  userName: string;
   roleId: number;
   roleName: string;
 }

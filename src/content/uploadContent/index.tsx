@@ -85,7 +85,7 @@ class UploadContent extends React.Component<IProps, IState> {
           </Item>
           <Divider />
           <Item label = "文件选择">
-            <Upload name = "upload" action = "upload/single" onChange = { this.handleChange }>
+            <Upload name = "upload" action = "/upload/single" onChange = { this.handleChange }>
               <Button>
                 <Icon type = "upload"/>
                 上传文件
