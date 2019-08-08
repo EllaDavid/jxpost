@@ -17,7 +17,6 @@ interface ISubMenu {
 export function menuAuthorityCom(groupId: number): ISubMenu[] {
   return (
     [{
-      icon: 'user',
       items: [{
         key: '101',
         link: '/main/uploadContent',
@@ -28,21 +27,21 @@ export function menuAuthorityCom(groupId: number): ISubMenu[] {
         value: '上传文件列表'
       }, {
         key: '103',
-        link: '/main/createMailDetailReportContent',
-        value: '生成寄递成本文件'
+        link: '/main/downloadDetailViewContent',
+        value: '下载文件列表'
       }, {
         key: '104',
         link: '/main/testContent',
         value: '测试'
       }],
+      icon: 'folder',
       key: '1',
-      value: '客户管理'
+      value: '文件处理'
     }, {
-      icon: 'laptop',
       items: [{
         key: '201',
-        link: '',
-        value: '子菜单二零一'
+        link: '/main/createMailDetailReportContent',
+        value: '生成成本文件'
       }, {
         key: '202',
         link: '',
@@ -52,8 +51,9 @@ export function menuAuthorityCom(groupId: number): ISubMenu[] {
         link: '/main/testContent',
         value: '测试菜单'
       }],
+      icon: 'red-envelope',
       key: '2',
-      value: '主菜单二'
+      value: '寄递事业'
     }]
   );
 }

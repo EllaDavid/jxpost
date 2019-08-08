@@ -17,3 +17,20 @@ export async function getColumn(callBack: Function) {
     console.log(e);
   }
 }
+
+export async function getDownloadDetailColumnCom(callBack: Function) {
+  const getUrl = 'tableColumn/downloadDetail';
+  const reqBody: any = {
+  }
+
+  try {
+    const res: IMessageRsp = await $req(getUrl, {
+      body: reqBody,
+      method: HttpMethod.get
+    });
+
+    callBack(res);
+  } catch(e) {
+    console.log(e);
+  }
+}

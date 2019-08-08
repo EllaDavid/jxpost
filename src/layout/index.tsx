@@ -11,6 +11,7 @@ import TestContent from '../content/testContent';
 import UploadContent from '../content/uploadContent';
 import UploadDetailViewContent from '../content/uploadDetailViewContent';
 import CreateMailDetailReportContent from '../content/createMailDetailReportContent';
+import DownloadDetailViewContent from '../content/downloadDetailViewContent';
 
 const { Header, Footer, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -29,6 +30,7 @@ class BaseLayout extends React.Component<IProps, IState> {
       '/main/uploadContent': '文件上传',
       '/main/uploadDetailViewContent': '上传文件列表',
       '/main/createMailDetailReportContent': '生成寄递成本文件',
+      '/main/downloadDetailViewContent': '下载文件列表',
       '/main/testContent': '测试'
     };
     const pathSnippets = this.props.location.pathname.split('/').filter(i => i);
@@ -91,6 +93,7 @@ class BaseLayout extends React.Component<IProps, IState> {
               <Route path='/main/uploadContent' component={ UploadContent } />
               <Route path='/main/uploadDetailViewContent' component={ UploadDetailViewContent } />
               <Route path='/main/createMailDetailReportContent' component={ CreateMailDetailReportContent } />
+              <Route path='/main/downloadDetailViewContent' component={ DownloadDetailViewContent } />
               <Route path='/main/testContent' component={ TestContent } />
               <Redirect to='/main/helloContent' />
             </Content>
