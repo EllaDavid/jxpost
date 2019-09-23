@@ -19,20 +19,12 @@ export function menuAuthorityCom(groupId: number): ISubMenu[] {
     [{
       items: [{
         key: '101',
-        link: '/main/uploadContent',
+        link: '/main/global/uploadContent',
         value: '文件上传'
       }, {
         key: '102',
-        link: '/main/uploadDetailViewContent',
+        link: '/main/global/uploadDetailViewContent',
         value: '上传文件列表'
-      }, {
-        key: '103',
-        link: '/main/downloadDetailViewContent',
-        value: '下载文件列表'
-      }, {
-        key: '104',
-        link: '/main/testContent',
-        value: '测试'
       }],
       icon: 'folder',
       key: '1',
@@ -40,15 +32,7 @@ export function menuAuthorityCom(groupId: number): ISubMenu[] {
     }, {
       items: [{
         key: '201',
-        link: '/main/createMailDetailReportContent',
-        value: '生成成本文件'
-      }, {
-        key: '202',
-        link: '',
-        value: '子菜单二零二'
-      }, {
-        key: '303',
-        link: '/main/testContent',
+        link: '/main/mail/testContent',
         value: '测试菜单'
       }],
       icon: 'red-envelope',

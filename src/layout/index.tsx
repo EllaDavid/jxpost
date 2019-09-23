@@ -10,8 +10,6 @@ import HelloContent from '../content/helloContent';
 import TestContent from '../content/testContent';
 import UploadContent from '../content/uploadContent';
 import UploadDetailViewContent from '../content/uploadDetailViewContent';
-import CreateMailDetailReportContent from '../content/createMailDetailReportContent';
-import DownloadDetailViewContent from '../content/downloadDetailViewContent';
 
 const { Header, Footer, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -27,11 +25,13 @@ class BaseLayout extends React.Component<IProps, IState> {
     const breadcrumbNameMap: any = {
       '/main': '主页',
       '/main/helloContent': '你好',
-      '/main/uploadContent': '文件上传',
-      '/main/uploadDetailViewContent': '上传文件列表',
-      '/main/createMailDetailReportContent': '生成寄递成本文件',
-      '/main/downloadDetailViewContent': '下载文件列表',
-      '/main/testContent': '测试'
+      '/main/global': '文件处理',
+      '/main/global/uploadContent': '文件上传',
+      '/main/global/uploadDetailViewContent': '上传文件列表',
+      // '/main/createMailDetailReportContent': '生成寄递成本文件',
+      // '/main/downloadDetailViewContent': '下载文件列表',
+      '/main/mail': '寄递业务',
+      '/main/mail/testContent': '测试'
     };
     const pathSnippets = this.props.location.pathname.split('/').filter(i => i);
     const extraBreadcrumbItems = pathSnippets.map((_, index) => {
@@ -90,11 +90,9 @@ class BaseLayout extends React.Component<IProps, IState> {
           <Content style={{ margin: '24px 16px 0' }}>
             <Content style={{ background: '#E8E8E8', padding: 24, margin: 0, minHeight: 280 }}>
               <Route path='/main/helloContent' component={ HelloContent } />
-              <Route path='/main/uploadContent' component={ UploadContent } />
-              <Route path='/main/uploadDetailViewContent' component={ UploadDetailViewContent } />
-              <Route path='/main/createMailDetailReportContent' component={ CreateMailDetailReportContent } />
-              <Route path='/main/downloadDetailViewContent' component={ DownloadDetailViewContent } />
-              <Route path='/main/testContent' component={ TestContent } />
+              <Route path='/main/global/uploadContent' component={ UploadContent } />
+              <Route path='/main/global/uploadDetailViewContent' component={ UploadDetailViewContent } />
+              <Route path='/main/mail/testContent' component={ TestContent } />
               <Redirect to='/main/helloContent' />
             </Content>
           </Content>

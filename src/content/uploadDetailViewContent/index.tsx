@@ -99,7 +99,7 @@ class UploadDetailViewContent extends React.Component<IProps, IState> {
   }
 
   private handleIconOnClick(record: any, callback: Function) {
-    uploadLoad(record, callback);
+    uploadLoad(record.id, callback);
   }
 
   public render() {
